@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Các project trong src/ là project độc lập. Loại trừ chúng khỏi default glob
+         của project Web để tránh compile nhầm AssemblyInfo.cs trong src/*/obj. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);src\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="src\BookingTicket.Application\BookingTicket.Application.csproj" />
+    <ProjectReference Include="src\BookingTicket.Infrastructure\BookingTicket.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
